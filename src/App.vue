@@ -4,6 +4,7 @@
   <div class="content">
     <h1>Rsbuild with Vue</h1>
     <p>Start building amazing things with Rsbuild.</p>
+    <span class="text-5">构建首页</span>
   </div>
 </template>
 

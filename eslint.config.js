@@ -1,12 +1,12 @@
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
-import eslintPluginVue from "eslint-plugin-vue";
-import stylistic from "@stylistic/eslint-plugin";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintPluginVue from 'eslint-plugin-vue'
+import stylistic from '@stylistic/eslint-plugin'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default tseslint.config(
   {
-    ignores: ["node_modules", "dist", "public"],
+    ignores: ['node_modules', 'dist', 'public'],
   },
 
   /** js推荐配置 */
@@ -14,25 +14,25 @@ export default tseslint.config(
   /** ts推荐配置 */
   ...tseslint.configs.recommended,
   /** vue推荐配置 */
-  ...eslintPluginVue.configs["flat/recommended"],
+  ...eslintPluginVue.configs['flat/recommended'],
 
   stylistic.configs.customize({
     indent: 2,
-    quotes: "single",
+    quotes: 'single',
     semi: false,
     jsx: true,
-    braceStyle: "1tbs",
-    arrowParens: "always",
+    braceStyle: '1tbs',
+    arrowParens: 'always',
   }),
 
   /**
    * javascript 规则
    */
   {
-    files: ["**/*.{js,mjs,cjs,vue}"],
+    files: ['**/*.{js,mjs,cjs,vue}'],
     rules: {
-      "no-console": "warn",
-      "no-undef": "off",
+      'no-console': 'warn',
+      'no-undef': 'off',
     },
   },
 
@@ -54,12 +54,12 @@ export default tseslint.config(
    * vue 规则
    */
   {
-    files: ["**/*.vue"],
+    files: ['**/*.vue'],
     languageOptions: {
       parserOptions: {
         /** typescript项目需要用到这个 */
         parser: tseslint.parser,
-        ecmaVersion: "latest",
+        ecmaVersion: 'latest',
         /** 允许在.vue 文件中使用 JSX */
         ecmaFeatures: {
           jsx: true,
@@ -68,13 +68,13 @@ export default tseslint.config(
     },
     rules: {
       // 在这里追加 vue 规则
-      "vue/no-mutating-props": [
-        "error",
+      'vue/no-mutating-props': [
+        'error',
         {
           shallowOnly: true,
         },
       ],
-      "vue/multi-word-component-names": "off",
+      'vue/multi-word-component-names': 'off',
     },
   },
 
@@ -82,9 +82,9 @@ export default tseslint.config(
    * typescript 规则
    */
   {
-    files: ["**/*.{ts,tsx,vue}"],
+    files: ['**/*.{ts,tsx,vue}'],
     rules: {
-      "@typescript-eslint/no-explicit-any": "warn",
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
 
@@ -93,5 +93,5 @@ export default tseslint.config(
    * 会合并根目录下的prettier.config.js 文件
    * @see https://prettier.io/docs/en/options
    */
-  eslintPluginPrettierRecommended,
-);
+  eslintPluginPrettierRecommended
+)
